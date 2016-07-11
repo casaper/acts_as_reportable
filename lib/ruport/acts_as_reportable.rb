@@ -163,14 +163,14 @@ module Ruport
         end
 
         # data = [*find(number, options)]
-
-        if query == :all
-          data = all.to_a
-        elsif query.is_a? Hash
-          data = where(query).to_a
-        else
-          data = []
-        end
+        
+         if query == :all
+           data = all.to_a
+         elsif query.is_a? Hash
+           data = where(query).to_a
+         else
+           data = [find(query)]
+         end
 
         data.compact!
         columns = []
